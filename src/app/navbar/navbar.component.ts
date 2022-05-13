@@ -22,15 +22,15 @@ import { map, shareReplay } from 'rxjs/operators';
             mat-list-item
             routerLink="/"
             routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
             >Space Flight News</a
           >
-        </mat-nav-list>
-        <mat-nav-list>
           <a
             class="categories"
             mat-list-item
             routerLink="/football"
             routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
             >Football News</a
           >
         </mat-nav-list>
@@ -46,7 +46,20 @@ import { map, shareReplay } from 'rxjs/operators';
           >
             <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
           </button>
-          <span>Global-News</span>
+          <span>Global News</span>
+          <span class="example-spacer"></span>
+          <button
+            mat-icon-button
+            class="example-icon favorite-icon"
+            aria-label="Example icon-button with heart icon"
+          >
+            <a
+              routerLink="/login"
+              (click)="login()"
+              class="text-decoration-none text-white text-uppercase fs-6"
+              >Login</a
+            >
+          </button>
         </mat-toolbar>
         <!-- Add Content Here -->
         <router-outlet></router-outlet>
@@ -76,6 +89,9 @@ import { map, shareReplay } from 'rxjs/operators';
       .active {
         color: #34568b;
       }
+      .example-spacer {
+        flex: 1 1 auto;
+      }
     `,
   ],
 })
@@ -88,4 +104,5 @@ export class NavbarComponent {
     );
 
   constructor(private breakpointObserver: BreakpointObserver) {}
+  login() {}
 }

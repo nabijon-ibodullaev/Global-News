@@ -19,9 +19,23 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatTabsModule } from '@angular/material/tabs';
 import { HttpService } from './Services/http.service';
 import { FootballComponent } from './football/football.component';
+import { LoginComponent } from './login/login.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent, HomeComponent, FootballComponent],
+  declarations: [
+    AppComponent,
+    NavbarComponent,
+    HomeComponent,
+    FootballComponent,
+    LoginComponent,
+    SignUpComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -37,8 +51,13 @@ import { FootballComponent } from './football/football.component';
     MatListModule,
     HttpClientModule,
     MatTabsModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
-  providers: [HttpService],
+  providers: [HttpService, MatDatepickerModule],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
